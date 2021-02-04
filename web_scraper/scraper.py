@@ -31,7 +31,7 @@ def get_citations_needed_count(url):
     occurence = []
     for note in result_to_filter:
       occurence.append(note)
-    return len(occurence) if result_to_filter else f'footnote references to \'citation needed\' found at {url}'
+    return len(occurence) if len(occurence) else f'footnote references to \'citation needed\' found at {url}'
     
   except:
     raise InvalidUrl(f'{url}:', 'is invalid or broken, check your arguments and try again')
@@ -50,17 +50,19 @@ def get_citations_needed_report(url):
     soup = BeautifulSoup(content, 'html.parser')
     anchor_to_filter = soup.findAll('a', title='Wikipedia:Citation needed')
     occurence = {}
-    all_cite_needed = []
+    needed = occurence[f'citation_{str(len(all_cite_needed ) + 1)}'] = str(note.parent.parent.parent.text).strip()
+
+    all_cite_needed = [all_cite_needed.append(needed) for note in anchor_to_filter]
   
-    for note in anchor_to_filter:
-      
-      needed = occurence[f'citation_{str(len(all_cite_needed ) + 1)}'] = str(note.parent.parent.parent.text).strip()
-      all_cite_needed.append(needed)
-    
     return all_cite_needed if anchor_to_filter else f'footnote references to \'citation needed\' found at {url}'
     
   except:
     raise InvalidUrl(f'{url}:', 'is invalid or broken, check your arguments and try again')
+    
+      
+      
+      
+    
 
 
 if __name__ == "__main__":
