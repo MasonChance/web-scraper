@@ -21,7 +21,7 @@ build-backend = "poetry.core.masonry.api"
 
 
 ## Canvas Assignment version and feature tasks:
-[Scraper Assignment task PR]()
+[Scraper Assignment task PR](https://github.com/MasonChance/web-scraper/pull/1)
 
 1. Scraper should report number of citations needed for the page
   - method w/signature: `get_citation_needed_count(url: str)->int` will only work for [wikipedia](https://en.wikipedia.org/wiki/Main_Page) pages.returns integer. 
